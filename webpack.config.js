@@ -6,7 +6,7 @@ module.exports = (env) => {
     entry: './src/index.js',
     output: {
       path: path.resolve(__dirname, 'build'),
-      filename: 'bundle.js'
+      filename: 'bundle' + env + '.js'
     },
     optimization: {
       minimize: false
@@ -18,8 +18,9 @@ module.exports = (env) => {
         },
         {
           test: /\.css$/,
-          use: [
-            { loader: 'style-loader' },
+          use: [{
+              loader: 'style-loader'
+            },
             {
               loader: 'css-loader',
               options: {
